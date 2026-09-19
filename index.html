@@ -217,21 +217,21 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--br);outline-offset:
 </div>
 <form class="fm" id="fm" aria-describedby="contact-status">
 <label for="fn">Seu nome</label>
-<input disabled id="fn" type="text" placeholder="Como podemos chamar você" autocomplete="name">
+<input id="fn" type="text" placeholder="Como podemos chamar você" autocomplete="name" required maxlength="80">
 <label for="fs">Assunto</label>
-<select disabled id="fs"><option>Contratar solista</option><option>Aulas de violino</option><option>Masterclass ou festival</option><option>Recital e câmara</option><option>Outro</option></select>
+<select id="fs"><option>Contratar solista</option><option>Aulas de violino</option><option>Masterclass ou festival</option><option>Recital e câmara</option><option>Outro</option></select>
 <label for="fms">Detalhe</label>
-<textarea disabled id="fms" rows="3" placeholder="Data, cidade, tipo de evento"></textarea>
-<button class="bt bt1" type="submit" disabled>Use o Instagram por enquanto</button>
+<textarea id="fms" rows="3" placeholder="Data, cidade, tipo de evento" maxlength="500"></textarea>
+<button class="bt bt1" type="submit">Enviar no WhatsApp</button>
 </form>
 </div>
 <section class="sc">
 <div class="sc-h rv"><h2 class="d">Dúvidas comuns</h2><span>faq</span></div>
 <div class="rv">
-<div class="fq-i"><button class="fq-q">Onde você toca hoje?<i>+</i></button><div class="fq-a"><p>Segundos violinos da Sinfônica Municipal no Theatro Municipal de São Paulo e spalla da Camerata Fukuda, além de convites como solista.</p></div></div>
-<div class="fq-i"><button class="fq-q">Onde você ensina?<i>+</i></button><div class="fq-a"><p>Instituto Baccarelli, Faculdade Santa Marcelina, convidado EMESP Tom Jobim e Instituto Luzes da Ribalta, no projeto Orquestrando Brasil.</p></div></div>
-<div class="fq-i"><button class="fq-q">Preciso ter violino para começar?<i>+</i></button><div class="fq-a"><p>Não para a primeira conversa. Na experimental avaliamos e indicamos o instrumento certo para seu bolso e objetivo.</p></div></div>
-<div class="fq-i"><button class="fq-q">Dá aula online?<i>+</i></button><div class="fq-a"><p>Sim, com câmera boa e material de apoio, mais a série Técnica e Expressividade no YouTube como reforço.</p></div></div>
+<div class="fq-i"><button class="fq-q" aria-expanded="false">Onde você toca hoje?<i>+</i></button><div class="fq-a"><p>Solista A da Sinfônica Municipal no Theatro Municipal de São Paulo, com função de concertino e chefia de naipe, além de spalla da Camerata Fukuda e convites como solista.</p></div></div>
+<div class="fq-i"><button class="fq-q" aria-expanded="false">Onde você ensina?<i>+</i></button><div class="fq-a"><p>Instituto Baccarelli, Faculdade Santa Marcelina, convidado EMESP Tom Jobim e Instituto Luzes da Ribalta, no projeto Orquestrando Brasil.</p></div></div>
+<div class="fq-i"><button class="fq-q" aria-expanded="false">Preciso ter violino para começar?<i>+</i></button><div class="fq-a"><p>Não para a primeira conversa. Na experimental avaliamos e indicamos o instrumento certo para seu bolso e objetivo.</p></div></div>
+<div class="fq-i"><button class="fq-q" aria-expanded="false">Dá aula online?<i>+</i></button><div class="fq-a"><p>Sim, com câmera boa e material de apoio, mais a série Técnica e Expressividade no YouTube como reforço.</p></div></div>
 </div>
 </section>
 <footer class="ft">
@@ -259,8 +259,8 @@ $$("#hdn a").forEach(function(a){a.addEventListener("click",function(){hdn.class
 var mqt=$("#mqt");mqt.innerHTML+=mqt.innerHTML;
 var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("on");io.unobserve(e.target)}})},{threshold:.12});
 $$(".rv").forEach(function(el){io.observe(el)});
-$$(".fq-i").forEach(function(it){var q=$(".fq-q",it),a=$(".fq-a",it);q.addEventListener("click",function(){var open=it.classList.contains("o");$$(".fq-i.o").forEach(function(o){o.classList.remove("o");$(".fq-a",o).style.maxHeight="0"});if(!open){it.classList.add("o");a.style.maxHeight=a.scrollHeight+"px"}})});
-$("#fm").addEventListener("submit",function(e){e.preventDefault();document.getElementById("contact-status").focus()});
+$$(".fq-i").forEach(function(it){var q=$(".fq-q",it),a=$(".fq-a",it);q.addEventListener("click",function(){var open=it.classList.contains("o");$$(".fq-i.o").forEach(function(o){o.classList.remove("o");$(".fq-a",o).style.maxHeight="0";$(".fq-q",o).setAttribute("aria-expanded","false")});if(!open){it.classList.add("o");q.setAttribute("aria-expanded","true");a.style.maxHeight=a.scrollHeight+"px"}})});
+$("#fm").addEventListener("submit",function(e){e.preventDefault();var n=$("#fn").value.trim(),s=$("#fs").value,d=$("#fms").value.trim(),st=$("#contact-status");if(!n){st.textContent="Diga seu nome para enviar no WhatsApp.";st.focus();$("#fn").focus();return}var msg="Olá, Wellington! Sou "+n+". Assunto: "+s+"."+(d?" Detalhe: "+d:"");window.open("https://wa.me/5511964183668?text="+encodeURIComponent(msg),"_blank","noopener");st.textContent="Abrindo seu WhatsApp com a mensagem pronta. Se não abrir, chame no (11) 96418-3668.";st.focus()});
 $("#yr").textContent=new Date().getFullYear();
 })();
 </script>
