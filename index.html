@@ -98,6 +98,18 @@ a{color:inherit}
 .ft-r h4{font-size:.75rem;letter-spacing:.3em;text-transform:uppercase;color:var(--mut);margin:0 0 1rem}
 .ft-r p,.ft-r a{line-height:2;color:var(--ink);text-decoration:none}
 .ft-b{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;color:var(--mut);font-size:.85rem}
+.sig{position:absolute;right:-1rem;top:6rem;font-family:"Instrument Serif",serif;font-size:clamp(6rem,22vw,20rem);line-height:1;color:transparent;-webkit-text-stroke:1px rgba(216,178,92,.28);pointer-events:none;user-select:none}
+.bow{display:block;width:min(34rem,80vw);height:34px;margin-top:1.6rem}
+.bow path{stroke:var(--br);stroke-width:2;fill:none;stroke-dasharray:600;stroke-dashoffset:600;animation:draw 1.6s ease-out .5s forwards}
+@keyframes draw{to{stroke-dashoffset:0}}
+.gal{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:1.2rem}
+.frm{position:relative;border:1px solid var(--ln);border-radius:var(--rd);overflow:hidden;background:var(--sm);min-height:22rem;display:flex;align-items:flex-end}
+.frm img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.frm figcaption{position:relative;padding:1.4rem;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;background:linear-gradient(0deg,rgba(20,17,11,.92),transparent);width:100%;box-sizing:border-box}
+.frm small{display:block;letter-spacing:.08em;text-transform:none;color:var(--mut);margin-top:.4rem;font-size:.85rem}
+.frm:hover{border-color:rgba(216,178,92,.6)}
+.sv-g .cd:nth-child(2){transition-delay:.08s}.sv-g .cd:nth-child(3){transition-delay:.16s}
+a:focus-visible,button:focus-visible{outline:2px solid var(--br);outline-offset:3px}
 .rv{opacity:0;transform:translateY(36px);transition:opacity .8s ease,transform .8s ease}
 .rv.on{opacity:1;transform:none}
 @media(max-width:1100px){.hd-n{display:none}.hd-m{display:block}.hd-n.o{display:flex;position:fixed;inset:0;background:#14110b;flex-direction:column;align-items:center;justify-content:center;gap:2rem}.sv-g{grid-template-columns:1fr}.ag{grid-template-columns:1fr}.hro-f{grid-template-columns:repeat(2,1fr)}.hro-f div:nth-child(3){border-left:0;padding-left:0}.ft-r{grid-template-columns:1fr}}
@@ -112,6 +124,7 @@ a{color:inherit}
 <a href="#sobre">Sobre</a>
 <a href="#atuacao">Atuação</a>
 <a href="#aulas">Aulas</a>
+<a href="#cena">Em cena</a>
 <a href="#agenda">Agenda</a>
 <a href="#contato">Contato</a>
 </nav>
@@ -119,11 +132,13 @@ a{color:inherit}
 <button class="hd-m" id="hdm" aria-label="Abrir menu">☰</button>
 </header>
 <section class="hro" id="topo">
-<img class="hro-i" src="https://images.unsplash.com/photo-1465821185615-20b3c2fbf41b?w=2000&q=80&auto=format&fit=crop" alt="Violino em luz quente" fetchpriority="high">
+<img class="hro-i" src="assets/yt-maxresdefault.jpg" alt="Wellington Rebouças em aula de violino, foto real do curso Técnica e Expressividade" fetchpriority="high">
 <div class="hro-v"></div>
+<span class="sig" aria-hidden="true">arco</span>
 <div class="hro-x">
-<span class="hro-s">Violinista, Theatro Municipal de São Paulo</span>
+<span class="hro-s">Violinista, Theatro Municipal de São Paulo, foto real em aula</span>
 <h1 class="hro-t d">O arco <em>que canta.</em></h1>
+<svg class="bow" viewBox="0 0 540 34" aria-hidden="true"><path d="M4 26 C 140 6, 380 6, 536 20"/></svg>
 <p class="hro-p">Solista, spalla da Camerata Fukuda e professor no Baccarelli, EMESP e Santa Marcelina. Do palco erudito à sala de aula, técnica com expressividade.</p>
 <div class="hro-a">
 <a class="bt bt1" href="#contato">Contratar</a>
@@ -171,6 +186,14 @@ a{color:inherit}
 <div class="lk"><a href="https://www.instagram.com/reboucaswellington/" target="_blank" rel="noopener">Instagram</a><a href="https://www.youtube.com/watch?v=43uvPFmI0JU" target="_blank" rel="noopener">YouTube</a></div>
 </div>
 </section>
+<section class="sc" id="cena">
+<div class="sc-h rv"><h2 class="d">Em cena</h2><span>ele mesmo, sem banco de imagem</span></div>
+<div class="gal">
+<figure class="frm rv"><img src="assets/yt-maxresdefault.jpg" alt="Wellington Rebouças dando aula de violino" loading="lazy"><figcaption>Aula real<small>Curso Técnica e Expressividade, ver no YouTube</small></figcaption></figure>
+<figure class="frm rv"><img src="assets/yt-sddefault.jpg" alt="Detalhe da aula de violino do Wellington" loading="lazy"><figcaption>Detalhe do arco<small>Mesma aula, outro frame</small></figcaption></figure>
+<figure class="frm rv"><img src="https://images.unsplash.com/photo-1507838153414-b4b713384a76?w=1200&q=80&auto=format&fit=crop" alt="Partitura, atmosfera de estudo" loading="lazy"><figcaption>Atmosfera<small>Partitura, apoio visual até chegarem suas fotos</small></figcaption></figure>
+</div>
+</section>
 <section class="sc" id="agenda">
 <div class="sc-h rv"><h2 class="d">Agenda</h2><span>datas públicas do Instagram</span></div>
 <div class="sv-g">
@@ -216,7 +239,7 @@ a{color:inherit}
 <div><h4>Fale</h4><p><a href="https://www.instagram.com/reboucaswellington/" target="_blank" rel="noopener">Instagram @reboucaswellington</a><br><a href="#topo">Voltar ao topo ↑</a></p></div>
 <div><h4>Segue</h4><p><a href="https://www.youtube.com/watch?v=43uvPFmI0JU" target="_blank" rel="noopener">YouTube, aula 1</a><br>3.251 seguidores</p></div>
 </div>
-<div class="ft-b"><span>© <i id="yr">2026</i> Wellington Rebouças.</span><span>Violino e ensino. Fotos provisórias Unsplash.</span></div>
+<div class="ft-b"><span>© <i id="yr">2026</i> Wellington Rebouças.</span><span>Violino e ensino. Foto de aula real dele, o resto troca com suas fotos.</span></div>
 </footer>
 <script>
 (function(){
