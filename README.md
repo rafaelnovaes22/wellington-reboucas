@@ -1,6 +1,6 @@
 # Wellington Rebouças
 
-Site institucional em arquivo único (`index.html`), no molde do Caio Gusmão. Violinista: solista, Sinfônica Municipal, spalla Camerata Fukuda, professor.
+Site institucional em arquivo único (`index.html`), no molde do Caio Gusmão. Violinista: solista, Sinfônica Municipal, spalla da Camerata Fukuda, professor.
 
 Fontes públicas usadas:
 - Instagram @reboucaswellington, bio e posts (111 posts, 3.251 seguidores, print set 2026)
@@ -12,7 +12,7 @@ Fontes públicas usadas:
 Fotos: provisórias Unsplash, trocar por fotos próprias com autorização. Nada do Instagram foi copiado por direito autoral.
 
 Deploy custo zero (sem Railway):
-- Cloudflare Pages free: `npx wrangler pages deploy . --project-name=welllington-reboucas`
+- Cloudflare Pages free: `npx wrangler pages deploy . --project-name=wellington-reboucas`
 - Vercel free: `npx vercel --prod` na pasta, ou arrastar no painel
 - Netlify Drop: arrastar a pasta em app.netlify.com/drop
 - GitHub Pages: subir e ativar Pages no repo
